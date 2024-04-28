@@ -1,14 +1,14 @@
-import { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../../providers/AuthProviders";
+// import { useContext } from "react";
+import { NavLink } from "react-router-dom";
+// import { AuthContext } from "../../../providers/AuthProviders";
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
-  console.log("this", user);
+//   const { user, logOut } = useContext(AuthContext);
+//   console.log("this", user);
 
-  const handleSignOut = () => {
-    logOut().then().catch();
-  };
+//   const handleSignOut = () => {
+//     logOut().then().catch();
+//   };
 
   const navLinks = (
     <>
@@ -19,10 +19,10 @@ const Navbar = () => {
         <NavLink to="/all-crafts">All Art & craft Items</NavLink>
       </li>
       <li>
-        <NavLink to="/add-craft">Add Craft Item</NavLink>
+        <NavLink to="/add-crafts">Add Craft Item</NavLink>
       </li>
       <li>
-        <NavLink to="/my-craft">My Art&Craft List</NavLink>
+        <NavLink to="/my-crafts">My Art & Craft List</NavLink>
       </li>
     </>
   );
@@ -61,7 +61,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1  gap-3">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         {user ? (
           <div className="flex items-center">
             <div className="w-10 mr-1">
@@ -80,7 +80,7 @@ const Navbar = () => {
             <button className="btn">Login</button>
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };

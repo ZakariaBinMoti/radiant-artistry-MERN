@@ -4,12 +4,10 @@ const Footer = () => {
       <div className="footer p-10  text-white max-w-7xl mx-auto">
         <aside>
           <a className="text-4xl mb-4 font-extrabold font-bodoni">
-            Royal <span className="text-[#BDA76E]">Residences</span>{" "}
+          Radiant <span className="text-[#BDA76E]">Artistry</span>{" "}
           </a>
           <p className="max-w-80">
-            We are committed to providing the most personalized real estate
-            services from listing to close. We have exceptional results which
-            are confirmed by the number of clients we serve.{" "}
+          Illuminating Your World with Creative Brilliance Where Paper and Glass Meet Inspiration Crafting Beauty in Paper and Glass Unveiling the Magic of Paper and Glass Exploring Paper Crafts & Glass Art.{" "}
           </p>
         </aside>
         <nav>
