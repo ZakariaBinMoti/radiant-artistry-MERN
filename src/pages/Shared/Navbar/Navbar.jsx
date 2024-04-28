@@ -12,16 +12,16 @@ const Navbar = () => {
 
   const navLinks = (
     <>
-      <li>
+      <li className="font-medium">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      <li className="font-medium">
         <NavLink to="/all-crafts">All Art & craft Items</NavLink>
       </li>
-      <li>
+      <li className="font-medium">
         <NavLink to="/add-crafts">Add Craft Item</NavLink>
       </li>
-      <li>
+      <li className="font-medium">
         <NavLink to="/my-crafts">My Art & Craft List</NavLink>
       </li>
     </>
