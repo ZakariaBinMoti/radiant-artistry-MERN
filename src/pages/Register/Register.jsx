@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -30,9 +30,9 @@ const Register = () => {
 
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Register | Radiant Artistry</title>
-      </Helmet>
+      </Helmet> */}
       <div>
         <h1 className="text-2xl font-semibold text-center my-8">
           Please Register your account

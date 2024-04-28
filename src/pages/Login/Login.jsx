@@ -2,7 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
-import { Helmet } from "react-helmet-async";
+// import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn, googleSignIn } = useContext(AuthContext);
@@ -29,9 +29,9 @@ const Login = () => {
 
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Login | Radiant Artistry</title>
-      </Helmet>
+      </Helmet> */}
       <div>
         <h1 className="text-2xl font-semibold text-center my-8">
           Please Login With your account

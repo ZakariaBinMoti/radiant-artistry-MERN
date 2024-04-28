@@ -1,14 +1,14 @@
-// import { useContext } from "react";
-import { NavLink } from "react-router-dom";
-// import { AuthContext } from "../../../providers/AuthProviders";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProviders";
 
 const Navbar = () => {
-//   const { user, logOut } = useContext(AuthContext);
-//   console.log("this", user);
+  const { user, logOut } = useContext(AuthContext);
+  console.log("this", user);
 
-//   const handleSignOut = () => {
-//     logOut().then().catch();
-//   };
+  const handleSignOut = () => {
+    logOut().then().catch();
+  };
 
   const navLinks = (
     <>
@@ -61,7 +61,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1  gap-3">{navLinks}</ul>
       </div>
-      {/* <div className="navbar-end">
+      <div className="navbar-end">
         {user ? (
           <div className="flex items-center">
             <div className="w-10 mr-1">
@@ -80,7 +80,7 @@ const Navbar = () => {
             <button className="btn">Login</button>
           </Link>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };
