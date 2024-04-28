@@ -76,9 +76,14 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
+          <div>
           <Link to="/login">
-            <button className="btn">Login</button>
+            <button className="btn text-white font-semibold mr-2 bg-[#BDA76E]">Login</button>
           </Link>
+          <Link to="/register">
+            <button className="btn text-white font-semibold bg-[#BDA76E]">Register</button>
+          </Link>
+          </div>
         )}
       </div>
     </div>

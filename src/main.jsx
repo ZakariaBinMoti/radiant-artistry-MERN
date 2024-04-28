@@ -10,6 +10,7 @@ import AllArtsAndCrafts from "./pages/AllArtsAndCrafts/AllArtsAndCrafts";
 import MyArtsAndCrafts from "./pages/MyArtsAndCrafts/MyArtsAndCrafts";
 import AddCraftItems from "./pages/AddCraftItem/AddCraftItems";
 import AuthProviders from "./providers/AuthProviders";
+import PrivateRoute from "./routes/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -34,11 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-crafts",
-        element: <MyArtsAndCrafts></MyArtsAndCrafts>,
+        element: <PrivateRoute><MyArtsAndCrafts></MyArtsAndCrafts></PrivateRoute>,
       },
       {
         path: "/add-crafts",
-        element: <AddCraftItems></AddCraftItems>,
+        element: <PrivateRoute><AddCraftItems></AddCraftItems></PrivateRoute>,
       },
     ],
   },
