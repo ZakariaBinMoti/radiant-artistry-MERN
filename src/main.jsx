@@ -1,18 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Root from './layouts/Root';
-import Home from './pages/Home/Home';
-import Login from './pages/Login/Login';
-import Register from './pages/Register/Register';
-import AllArtsAndCrafts from './pages/AllArtsAndCrafts/AllArtsAndCrafts';
-import MyArtsAndCrafts from './pages/MyArtsAndCrafts/MyArtsAndCrafts';
-import AddCraftItems from './pages/AddCraftItem/AddCraftItems';
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./layouts/Root";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import AllArtsAndCrafts from "./pages/AllArtsAndCrafts/AllArtsAndCrafts";
+import MyArtsAndCrafts from "./pages/MyArtsAndCrafts/MyArtsAndCrafts";
+import AddCraftItems from "./pages/AddCraftItem/AddCraftItems";
+import AuthProviders from "./providers/AuthProviders";
 
 const router = createBrowserRouter([
   {
@@ -47,9 +44,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+    <AuthProviders>
+      <RouterProvider router={router} />
+    </AuthProviders>
+  </React.StrictMode>
+);
