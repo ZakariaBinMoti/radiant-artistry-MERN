@@ -81,9 +81,9 @@ const AddCraftItems = () => {
             {/* form */}
             <form
               onSubmit={handleAddItems}
-              className="card-body grid grid-cols-2 space-x-5"
+              className="card-body grid grid-cols-1 lg:grid-cols-2 space-x-5"
             >
-              <div className="form-control ml-5 col-span-2">
+              <div className="form-control ml-5 lg:col-span-2">
                 <label className="label">
                   <span className="label-text">Image URL</span>
                 </label>
@@ -232,7 +232,7 @@ const AddCraftItems = () => {
                 />
               </div>
 
-              <div className="form-control mt-6 col-span-2">
+              <div className="form-control mt-6 lg:col-span-2">
                 <input
                   className="btn text-white font-semibold bg-[#BDA76E]"
                   type="submit"

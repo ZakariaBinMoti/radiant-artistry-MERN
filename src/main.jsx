@@ -12,6 +12,7 @@ import AddCraftItems from "./pages/AddCraftItem/AddCraftItems";
 import AuthProviders from "./providers/AuthProviders";
 import PrivateRoute from "./routes/PrivateRoute";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import CraftDetails from "./pages/Shared/CraftDetails/CraftDetails";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/add-crafts",
         element: <PrivateRoute><AddCraftItems></AddCraftItems></PrivateRoute>,
+      },
+      {
+        path: "/crafts/:id",
+        element: <PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>,
       },
     ],
   },

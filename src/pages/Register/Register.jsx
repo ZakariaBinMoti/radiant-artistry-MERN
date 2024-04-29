@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
 // import { Helmet } from "react-helmet-async";
 
 const Register = () => {
@@ -18,14 +19,57 @@ const Register = () => {
     const password = form.get("password");
     console.log(name, email, photo, password);
 
-    createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
-        navigate(location?.state ? location.state : "/");
-      })
-      .catch((error) => {
-        console.error(error);
+    if (password.length < 6) {
+      Swal.fire({
+        title: "Error!",
+        text: "Password must be at least 6 characters long.",
+        icon: "error",
       });
+    } else if (!/[A-Z]/.test(password)) {
+      Swal.fire({
+        title: "Error!",
+        text: "Password must contain at least one uppercase letter.",
+        icon: "error",
+      });
+    } else if (!/[a-z]/.test(password)) {
+      Swal.fire({
+        title: "Error!",
+        text: "Password must contain at least one lowercase letter.",
+        icon: "error",
+      });
+    } else {
+      createUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          if (result.user) {
+            Swal.fire({
+              title: "Success!",
+              text: "Registration Successful",
+              icon: "success",
+            }).then(() => {
+              navigate(location?.state ? location.state : "/");
+            });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          if (error.code && error.code.startsWith("auth/")) {
+            // Extract and display the error message
+            Swal.fire({
+              title: "Error!",
+              text: `${error.message}`,
+              icon: "error",
+            });
+          } else {
+            // If it's not a Firebase error, you can display the error object
+            Swal.fire({
+              title: "Error!",
+              text: `${error}`,
+              icon: "error",
+            });
+          }
+        });
+    }
   };
 
   return (
