@@ -75,7 +75,7 @@ const AddCraftItems = () => {
       <div>
         <div className="hero-content flex-col lg:flex-col mx-10">
           <div className="text-center lg:text-left">
-            <h1 className="text-3xl font-bold">Craft Item Details</h1>
+            <h1 className="text-4xl font-semibold">Add Craft Item</h1>
           </div>
           <div className="card shrink-0 w-full shadow-2xl bg-base-100 ">
             {/* form */}

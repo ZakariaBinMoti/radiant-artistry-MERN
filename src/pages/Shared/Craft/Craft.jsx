@@ -11,9 +11,7 @@ const Craft = ({craft}) => {
         rating,
         customization,
         processing_time,
-        stockStatus,
-        email,
-        name,
+        stockStatus
       } = craft;
     return (
         <div>
@@ -24,6 +22,7 @@ const Craft = ({craft}) => {
             <p className={stockStatus=='In stock' ? "bg-green-600 flex items-center rounded-lg px-3 bg-center text-center text-white" : "bg-red-600 flex items-center rounded-lg px-3 bg-center text-center text-white" } >{stockStatus}</p>
             </div>
             <p>Processing Time: {processing_time} days</p>
+            <p>Ratings: {rating}</p>
             <p className=" text-xl font-bold"> Price: <span className="text-amber-600">{price}</span> </p>
             <p></p>
             <Link to={`/crafts/${_id}`}><button className="btn w-full bg-[#BDA76E] text-white">View Details</button></Link>
