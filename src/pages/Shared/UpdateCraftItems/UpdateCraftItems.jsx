@@ -1,10 +1,11 @@
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const UpdateCraftItems = () => {
   const craft = useLoaderData();
+  const navigate = useNavigate();
   console.log(craft);
 
   const {
@@ -54,7 +55,7 @@ const UpdateCraftItems = () => {
 
     console.log("this is the form", updateCraft);
 
-    fetch(`http://localhost:5000/crafts/${_id}}`, {
+    fetch(`http://localhost:5000/crafts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -64,12 +65,13 @@ const UpdateCraftItems = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
             text: "Updated Successfully!",
             icon: "success",
           });
+          navigate("/my-crafts");
         } else {
           Swal.fire({
             icon: "error",
