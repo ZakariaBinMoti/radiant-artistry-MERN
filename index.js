@@ -27,20 +27,20 @@ async function run() {
 
     const craftsCollection = client.db('craftsDB').collection('crafts');
 
-    app.get('/crafts', async(req, res)=>{
-        const cursor = craftsCollection.find();
-        const result = await cursor.toArray();
-        res.send(result)
+    app.get('/crafts', async (req, res) => {
+      const cursor = craftsCollection.find();
+      const result = await cursor.toArray();
+      res.send(result)
     })
 
-    app.get('/crafts/:id', async(req, res) =>{
+    app.get('/crafts/:id', async (req, res) => {
       const id = req.params.id;
-      const query = {_id: new ObjectId(id)};
+      const query = { _id: new ObjectId(id) };
       const result = await craftsCollection.findOne(query);
       res.send(result);
     })
 
-    app.post('/myitems', async(req, res) =>{
+    app.post('/myitems', async (req, res) => {
 
       const query = req.body;
       const cursor = craftsCollection.find(query);
@@ -54,17 +54,44 @@ async function run() {
     })
 
 
-    app.post('/crafts', async(req, res)=>{
-        const newCraft = req.body;
-        console.log(newCraft);
-        const result = await craftsCollection.insertOne(newCraft);
-        res.send(result);
+    app.post('/crafts', async (req, res) => {
+      const newCraft = req.body;
+      console.log(newCraft);
+      const result = await craftsCollection.insertOne(newCraft);
+      res.send(result);
     })
 
 
-    app.delete('/crafts/:id', async (req, res) =>{
+    app.put('/crafts/:id', async (req, res) => {
       const id = req.params.id;
-      const query = {_id: new ObjectId(id)};
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedCraft = req.body;
+      const craft = {
+        $set: {
+          image: updatedCraft.image,
+          item_name: updatedCraft.item_name,
+          subcategory_name: updatedCraft.subcategory_name,
+          description: updatedCraft.description,
+          price: updatedCraft.price,
+          rating: updatedCraft.rating,
+          customization: updatedCraft.customization,
+          processing_time: updatedCraft.processing_time,
+          stockStatus: updatedCraft.stockStatus,
+          email: updatedCraft.email,
+          name: updatedCraft.name,
+        }
+      }
+
+      const result = await craftsCollection.updateOne(filter, craft, options);
+      res.send(result);
+
+    })
+
+
+    app.delete('/crafts/:id', async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
       const result = await craftsCollection.deleteOne(query);
       res.send(result);
     })
@@ -84,10 +111,10 @@ async function run() {
 run().catch(console.dir);
 
 
-app.get('/', (req ,res) =>{
-    res.send('Hello World from Home');
+app.get('/', (req, res) => {
+  res.send('Hello World from Home');
 })
 
-app.listen(port, () =>{
-    console.log(`Server is running on port: ${port}`);
+app.listen(port, () => {
+  console.log(`Server is running on port: ${port}`);
 })
