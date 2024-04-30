@@ -5,11 +5,8 @@ const Craft = ({craft}) => {
         _id,
         image,
         item_name,
-        subcategory_name,
-        description,
         price,
         rating,
-        customization,
         processing_time,
         stockStatus
       } = craft;

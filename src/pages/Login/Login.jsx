@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle, FaGithub } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
 // import { Helmet } from "react-helmet-async";
 
 const Login = () => {
@@ -17,9 +18,33 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         console.log(result);
-        navigate(location?.state ? location.state : "/");
+        if (result.user) {
+          Swal.fire({
+            title: "Success!",
+            text: "Login Successful",
+            icon: "success",
+          }).then(() => {
+            navigate(location?.state ? location.state : "/");
+          });
+        }
       })
-      .catch();
+      .catch((error) => {
+        if (error.code && error.code.startsWith("auth/")) {
+          // Extract and display the error message
+          Swal.fire({
+            title: "Error!",
+            text: `${error.message}`,
+            icon: "error",
+          });
+        } else {
+          // If it's not a Firebase error, you can display the error object
+          Swal.fire({
+            title: "Error!",
+            text: `${error}`,
+            icon: "error",
+          });
+        }
+      });
   };
 
   const handleGoogle = () => {
