@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/crafts')
+        loader: () => fetch('https://radiant-artistry-server.vercel.app/crafts')
       },
       {
         path: "/login",
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/all-crafts",
         element: <AllArtsAndCrafts></AllArtsAndCrafts>,
-        loader: () => fetch('http://localhost:5000/crafts')
+        loader: () => fetch('https://radiant-artistry-server.vercel.app/crafts')
       },
       {
         path: "/my-crafts",
@@ -51,17 +51,17 @@ const router = createBrowserRouter([
       {
         path: "/crafts/:id",
         element: <PrivateRoute><CraftDetails></CraftDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        loader: ({params}) => fetch(`https://radiant-artistry-server.vercel.app/crafts/${params.id}`)
       },
       {
         path: "/updateCrafts/:id",
         element: <PrivateRoute><UpdateCraftItems></UpdateCraftItems></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        loader: ({params}) => fetch(`https://radiant-artistry-server.vercel.app/crafts/${params.id}`)
       },
       {
         path: "/category",
         element: <CategoryWiseData></CategoryWiseData>,
-        // loader: ({params}) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        // loader: ({params}) => fetch(`https://radiant-artistry-server.vercel.app/${params.id}`)
       },
     ],
   },

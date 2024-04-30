@@ -10,7 +10,7 @@ const CategoryWiseData = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/myitems", {
+    fetch("https://radiant-artistry-server.vercel.app/myitems", {
       method: "POST",
       headers: {
         "content-type": "application/json",

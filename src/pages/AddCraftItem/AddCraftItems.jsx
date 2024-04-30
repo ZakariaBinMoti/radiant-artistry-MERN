@@ -38,7 +38,7 @@ const AddCraftItems = () => {
 
     console.log("this is the form", newCraft);
 
-    fetch("http://localhost:5000/crafts", {
+    fetch("https://radiant-artistry-server.vercel.app/crafts", {
       method: "POST",
       headers: {
         "content-type": "application/json",

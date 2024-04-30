@@ -82,7 +82,7 @@ const Register = () => {
           Please Register your account
         </h1>
       </div>
-      <div className="w-1/3 mx-auto shadow-2xl p-8 rounded-lg">
+      <div className="lg:w-1/3 md:w-1/2 mx-5 md:mx-auto lg:mx-auto shadow-2xl p-8 rounded-lg">
         <form onSubmit={handleRegister}>
           <div className="form-control">
             <label className="label">

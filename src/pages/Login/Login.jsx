@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 // import { Helmet } from "react-helmet-async";
 
 const Login = () => {
-  const { signIn, googleSignIn } = useContext(AuthContext);
+  const { signIn, googleLogIn, githubLogIn } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -47,10 +47,24 @@ const Login = () => {
       });
   };
 
-  const handleGoogle = () => {
-    console.log("goole click");
-    googleSignIn().then().then();
+  const from = location?.state || "/";
+  const handleSocialLogin = (socialProvider) => {
+    socialProvider().then((result) => {
+      if (result.user) {
+        navigate(from);
+      }
+    });
   };
+
+  // const handleGoogle = () => {
+  //   console.log("goole click");
+  //   googleSignIn()
+  //   .then(result =>{
+  //     console.log(result);
+  //   }).catch(error=>{
+  //     console.log(error);
+  //   });
+  // };
 
   return (
     <div>
@@ -62,7 +76,7 @@ const Login = () => {
           Please Login With your account
         </h1>
       </div>
-      <div className="w-1/3 mx-auto shadow-2xl p-8 rounded-lg">
+      <div className="lg:w-1/3 mx-4 md:w-1/2 md:mx-auto lg:mx-auto shadow-2xl p-4 lg:p-8 rounded-lg">
         <form onSubmit={handleLogin}>
           <div className="form-control">
             <label className="label">
@@ -115,13 +129,13 @@ const Login = () => {
         </div>
         <div className="grid grid-cols-2 gap-2">
           <button
-            onClick={handleGoogle}
+            onClick={()=>handleSocialLogin(googleLogIn)}
             className="btn w-full border border-gray-500 shadow-md"
           >
             {" "}
             <FaGoogle></FaGoogle> Google
           </button>
-          <button className="btn w-full border-gray-500 shadow-md">
+          <button onClick={()=> handleSocialLogin(githubLogIn) } className="btn w-full border-gray-500 shadow-md">
             {" "}
             <FaGithub></FaGithub> Github
           </button>

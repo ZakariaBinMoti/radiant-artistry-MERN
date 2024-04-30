@@ -55,7 +55,7 @@ const UpdateCraftItems = () => {
 
     console.log("this is the form", updateCraft);
 
-    fetch(`http://localhost:5000/crafts/${_id}`, {
+    fetch(`https://radiant-artistry-server.vercel.app/crafts/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

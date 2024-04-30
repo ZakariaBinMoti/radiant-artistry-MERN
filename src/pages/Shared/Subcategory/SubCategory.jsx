@@ -3,7 +3,7 @@ import Category from "../Category/Category";
 const SubCategory = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/subcategory")
+    fetch("https://radiant-artistry-server.vercel.app/subcategory")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -7,8 +7,13 @@ const MyArtsAndCrafts = () => {
   const [myitems, setMyitems] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const handleCustomfilter  = (filter) =>{
+     const value = myitems.filter(item => item.customization===filter);
+     console.log(value);
+  }
+
   useEffect(() => {
-    fetch("http://localhost:5000/myitems", {
+    fetch("https://radiant-artistry-server.vercel.app/myitems", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -28,6 +33,41 @@ const MyArtsAndCrafts = () => {
       <h1 className=" text-center text-4xl font-semibold  mb-8">
         My Arts And Crafts List
       </h1>
+      <div className="flex items-center justify-center">
+        <div className="dropdown">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn text-white m-1 bg-[#23BE0A]"
+          >
+            Customization{" "}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M19.5 8.25L12 15.75L4.5 8.25"
+                stroke="white"
+                className="text-white"
+              />
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li onClick={()=>handleCustomfilter('Yes')}>
+              <a>Yes</a>
+            </li>
+            <li onClick={()=>handleCustomfilter('No')}>
+              <a>No</a>
+            </li>
+          </ul>
+        </div>
+      </div>
       {loading ? (
         <span className="loading loading-bars loading-lg"></span>
       ) : (

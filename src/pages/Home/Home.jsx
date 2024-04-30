@@ -7,6 +7,7 @@ import SubCategory from "../Shared/Subcategory/SubCategory";
 const Home = () => {
 
     const loadedCrafts = useLoaderData();
+    console.log(loadedCrafts);
 
     return (
         <div>
