@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import Header from "../Shared/Header/Header";
 import Craft from "../Shared/Craft/Craft";
+import Contact from "../Shared/Contact/Contact";
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
                     loadedCrafts.map(craft => <Craft key={craft._id} craft={craft} ></Craft>)
                 }
             </div>
+            <Contact></Contact>
         </div>
     );
 };

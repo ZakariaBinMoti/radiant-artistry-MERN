@@ -2,6 +2,11 @@
 
 Welcome to Radiant Artistry, your premier destination for exploring the intricate beauty of paper crafts and glass art.
 
+## Categories Name: Paper Crafts & Glass Art
+
+## Website URL:
+[Radiant Artistry](#)
+
 ## Features:
 - **Exquisite Craft Showcase:** Immerse yourself in a curated selection of paper crafts and glass art pieces, showcasing the intricate craftsmanship and creativity of talented artists.
 - **Detailed Art Descriptions:** Each art piece is accompanied by a detailed description, providing insights into the materials used, artistic techniques employed, and the inspiration behind the creation.
@@ -14,5 +19,4 @@ Welcome to Radiant Artistry, your premier destination for exploring the intricat
 - React Tooltip: npm package name: react-tooltip
 - Typewriter: npm package name: typewriter-react
 
-## Website URL:
-[Radiant Artistry](#)
+
