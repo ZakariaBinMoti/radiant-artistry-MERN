@@ -4,10 +4,11 @@ const Footer = () => {
       <div className="footer p-10  text-white max-w-7xl mx-auto">
         <aside>
           <a className="text-4xl mb-4 font-extrabold font-bodoni">
-          Radiant <span className="text-[#BDA76E]">Artistry</span>{" "}
+            Radiant <span className="text-[#BDA76E]">Artistry</span>{" "}
           </a>
           <p className="max-w-80">
-          Illuminating Your World with Creative Brilliance Where Paper and Glass Meet Inspiration Crafting Beauty in Paper and Glass Unveiling the Magic of Paper and Glass Exploring Paper Crafts & Glass Art.{" "}
+            Email: <a href="mailto:info@radiantartistry.com.bd">info@radiantartistry.com.bd</a> <br /> Phone: +880 1234 567890 <br /> Address:
+            RadiantArtistry <br /> 123 Crafting Avenue, <br /> Dhaka 1205, Bangladesh{" "}
           </p>
         </aside>
         <nav>
@@ -25,11 +26,14 @@ const Footer = () => {
           <a className="link link-hover">Press kit</a>
         </nav>
         <nav>
-          <h6 className="footer-title">Legal</h6>
-          <a className="link link-hover">Terms of use</a>
-          <a className="link link-hover">Privacy policy</a>
-          <a className="link link-hover">Cookie policy</a>
+          <h6 className="footer-title">Social</h6>
+          <a className="link link-hover">Facebook</a>
+          <a className="link link-hover">Instagram</a>
+          <a className="link link-hover">Twitter</a>
         </nav>
+      </div>
+      <div>
+      <p className="text-white opacity-60 text-center pb-5">&copy; <span>2024</span> RadiantArtistry. All rights reserved.</p>
       </div>
     </footer>
   );

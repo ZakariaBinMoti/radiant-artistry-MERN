@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyItemsCard = ({ craft }) => {
+const MyItemsCard = ({ craft, myitems, setMyitems }) => {
   const {
     _id,
     image,
@@ -37,6 +37,10 @@ const MyItemsCard = ({ craft }) => {
                 text: "Your Craft item has been deleted.",
                 icon: "success",
               });
+
+              const remaining = myitems.filter(item => item._id !== _id);
+              setMyitems(remaining);
+
             }
           });
       }

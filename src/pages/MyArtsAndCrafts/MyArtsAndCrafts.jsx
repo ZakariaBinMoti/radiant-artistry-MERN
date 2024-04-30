@@ -35,7 +35,12 @@ const MyArtsAndCrafts = () => {
           {myitems.length > 0 ? (
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mt-8">
               {myitems.map((craft) => (
-                <MyItemsCard key={craft._id} craft={craft}></MyItemsCard>
+                <MyItemsCard
+                  key={craft._id}
+                  craft={craft}
+                  myitems={myitems}
+                  setMyitems={setMyitems}
+                ></MyItemsCard>
               ))}
             </div>
           ) : (
