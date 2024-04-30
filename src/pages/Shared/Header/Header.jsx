@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { Typewriter } from "react-simple-typewriter";
 const Header = () => {
   return (
     <div className="relative">
@@ -48,10 +49,20 @@ const Header = () => {
       </Swiper>
 
       <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 z-50">
-        <h1 className="text-7xl text-white font-bodoni text-center">
-        Artistry in Paper  <br />
-        Crafts & Glass
-        </h1>
+      <h1 className="text-7xl text-white font-bodoni text-center" style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }}>
+      Artistry in{' '}
+        <span style={{ color: 'red', fontWeight: 'bold' }}>
+          <Typewriter
+            words={['Paper', 'Crafts', '& Glass']}
+            loop={20}
+            cursor
+            cursorStyle='_'
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </span>
+      </h1>
       </div>
     </div>
   );
