@@ -36,13 +36,12 @@ async function run() {
     app.get('/crafts/:id', async(req, res) =>{
       const id = req.params.id;
       const query = {_id: new ObjectId(id)};
-      console.log(query);
       const result = await craftsCollection.findOne(query);
-      console.log(result);
       res.send(result);
     })
 
     app.post('/myitems', async(req, res) =>{
+
       const query = req.body;
       const cursor = craftsCollection.find(query);
       if ((await craftsCollection.countDocuments(query)) === 0) {
@@ -62,6 +61,13 @@ async function run() {
         res.send(result);
     })
 
+
+    app.delete('/crafts/:id', async (req, res) =>{
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await craftsCollection.deleteOne(query);
+      res.send(result);
+    })
 
 
 
