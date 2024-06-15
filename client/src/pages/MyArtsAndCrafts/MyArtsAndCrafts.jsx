@@ -4,13 +4,21 @@ import MyItemsCard from "../Shared/MyItemsCard/MyItemsCard";
 
 const MyArtsAndCrafts = () => {
   const { user } = useContext(AuthContext);
+
   const [myitems, setMyitems] = useState([]);
+
+  const [myitems2, setMyitems2] = useState([]);
+  
   const [loading, setLoading] = useState(true);
 
-  const handleCustomfilter  = (filter) =>{
-     const value = myitems.filter(item => item.customization===filter);
-     console.log(value);
-  }
+  const handleCustomfilter = (filter) => {
+    if (filter === "No Filter") {
+      setMyitems2(myitems);
+    } else {
+      const value = myitems.filter((item) => item.customization === filter);
+      setMyitems2(value);
+    }
+  };
 
   useEffect(() => {
     fetch("https://radiant-artistry-server.vercel.app/myitems", {
@@ -24,6 +32,7 @@ const MyArtsAndCrafts = () => {
       .then((data) => {
         console.log(data);
         setMyitems(data);
+        setMyitems2(data);
         setLoading(false);
       });
   }, []);
@@ -59,10 +68,13 @@ const MyArtsAndCrafts = () => {
             tabIndex={0}
             className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li onClick={()=>handleCustomfilter('Yes')}>
+            <li onClick={() => handleCustomfilter("No Filter")}>
+              <a>No Filter</a>
+            </li>
+            <li onClick={() => handleCustomfilter("Yes")}>
               <a>Yes</a>
             </li>
-            <li onClick={()=>handleCustomfilter('No')}>
+            <li onClick={() => handleCustomfilter("No")}>
               <a>No</a>
             </li>
           </ul>
@@ -74,7 +86,7 @@ const MyArtsAndCrafts = () => {
         <>
           {myitems.length > 0 ? (
             <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 mt-8">
-              {myitems.map((craft) => (
+              {myitems2.map((craft) => (
                 <MyItemsCard
                   key={craft._id}
                   craft={craft}

@@ -9,7 +9,7 @@ import "swiper/css/scrollbar";
 import { Typewriter } from "react-simple-typewriter";
 const Header = () => {
   return (
-    <div className="relative lg:mx-0 mx-2">
+    <div className="relative my-12 lg:mx-0 mx-2">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={50}

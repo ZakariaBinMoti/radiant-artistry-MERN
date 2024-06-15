@@ -12,7 +12,7 @@ const SubCategory = () => {
   }, []);
 
   return (
-    <div className="my-20">
+    <div className="my-32">
         <h1 className=" text-center text-4xl font-semibold  mb-8">
         Categories
       </h1>
